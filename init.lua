@@ -968,3 +968,15 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- Setup quick git commands
+function GitStatusDiff()
+  vim.cmd 'split | term git status && git diff'
+end
+
+function GitStatusStaged()
+  vim.cmd 'split | term git status && git diff --staged'
+end
+
+vim.api.nvim_set_keymap('n', '<Leader>gdi', ':lua GitStatusDiff()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>gds', ':lua GitStatusStaged()<CR>', { noremap = true, silent = true })
