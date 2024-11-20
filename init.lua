@@ -981,4 +981,10 @@ end
 vim.api.nvim_set_keymap('n', '<Leader>gdi', ':lua GitStatusDiff()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>gds', ':lua GitStatusStaged()<CR>', { noremap = true, silent = true })
 
-vim.cmd('colorscheme thematrix')
+vim.cmd 'colorscheme thematrix'
+
+vim.filetype.add {
+  extension = {
+    avdl = 'avdl', -- Associate.avdl files with custom AVDL syntax
+  },
+}
